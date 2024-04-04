@@ -1,8 +1,8 @@
 //
 #include <iostream>
 
-#include "gamefn.h"
 using namespace std;
+#include "gamefn.h"
 
 Day::Day(int x, int y){
     energy = x;

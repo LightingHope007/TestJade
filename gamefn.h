@@ -1,4 +1,6 @@
 //this is for placing all of the minigame.
+#ifndef gamefn_h
+#define gamefn_h
 
 #include <iostream>
 using namespace std;
@@ -8,7 +10,7 @@ class Day{
         int energy, time;//each day has it's own energy.(can change it to player)
         Day *next;
     public:
-        Day(int = 1);
+        Day(int = 1, int = 1);
         ~Day();
 
         Day* move_next();//for LL.
@@ -24,3 +26,5 @@ class player{
         ~player();
 
 };
+
+#endif
