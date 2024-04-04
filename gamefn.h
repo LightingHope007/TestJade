@@ -3,16 +3,16 @@
 #include <iostream>
 using namespace std;
 
-class day{
+class Day{
     private:
         int energy, time;//each day has it's own energy.(can change it to player)
-        day *next;
+        Day *next;
     public:
-        day(int = 1);
-        ~day();
+        Day(int = 1);
+        ~Day();
 
-        day* move_next();//for LL.
-        void insert(day*&);//for LL.
+        Day* move_next();//for LL.
+        void insert(Day*&);//for LL.
 };
 
 //might not need to be class, can be only structure for collecting achievement only.

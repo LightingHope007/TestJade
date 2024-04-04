@@ -12,14 +12,14 @@ LL::LL(){
 LL::~LL(){
      int i;
      for(i = 0; i < size; i++){
-          day *t = hol;
+          Day *t = hol;
           hol = hol->move_next();
           delete t;
      }
      size = 0;
 }
 
-void LL::add_node(day *&A){
+void LL::add_node(Day *&A){
      hol -> insert(A);
      hol = A;
      size++;
@@ -29,12 +29,12 @@ int LL::show_size(){
      return size;
 }
 
-//this is for checking days and day loop
-day *LL::get_node(int index){
+//this is for checking days and Day loop
+Day *LL::get_node(int index){
      if(index < 0 || index >= size) 
             return nullptr;// out of bounds
 
-     day *t = hol;
+     Day *t = hol;
      int c;
      for (c = 0; c < index; c++){ 
             if (t == nullptr) return nullptr; // Should not happen, but handle it defensively
