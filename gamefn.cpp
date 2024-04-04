@@ -1,14 +1,16 @@
 //
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 #include "gamefn.h"
 
-Day::Day(int x, int y){
-    energy = x;
-    time = y;
+Day::Day(int x){
+    
+    time = x;
     next = NULL;
-    cout << "Adding " << x <<" to energy."<< endl;
+    cout << "Day start at " << setfill('0') <<setw(2) << x/60 
+    <<":"<<  setfill('0') << setw(2) << x%60 << endl;
 }
 
 Day:: ~Day(){
@@ -21,4 +23,12 @@ Day* Day::move_next(){
 
 void Day::insert(Day*& x){
       x -> next = this;
+}
+
+void Day::showTime(){
+      return time;
+}
+
+int Day::DayPass(int x){
+      time+=x;
 }
