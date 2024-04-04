@@ -1,3 +1,5 @@
+#include <iostream>
+#include "gamefn.h"
 //using node LL(link list) as days.
 class LL{
      day *hol;//head of link list pointer 

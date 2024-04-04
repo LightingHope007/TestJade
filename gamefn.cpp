@@ -1,7 +1,7 @@
 //
 #include <iostream>
 
-#include"gamefn.h"
+#include "gamefn.h"
 using namespace std;
 
 day::day(int x, int y){

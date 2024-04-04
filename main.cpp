@@ -8,5 +8,6 @@
 using namespace std;
 
 int main(){
+    LL L;
     cout<<"Hello world"<<endl;
 }
