@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "LL.h"
-#include "gamefn.h"
+#include "Day.h"
 using namespace std;
 
 LL::LL(){
@@ -41,4 +41,15 @@ Day *LL::get_node(int index){
           t = t->move_next();
      }
      return t;
+}
+
+//run the game
+void LL::run(){
+     int i;
+     for(i = 0; i < size; i++){
+          Day *t = hol;
+          hol = hol->move_next();
+          t->Drun(i+1);
+     }
+     size = 0;
 }

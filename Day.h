@@ -1,6 +1,6 @@
 //this is for placing all of the minigame.
-#ifndef gamefn_h
-#define gamefn_h
+#ifndef Day_h
+#define Day_h
 
 #include <iostream>
 using namespace std;
@@ -18,6 +18,8 @@ class Day{
 
         int showTime();//request time value
         void DayPass(int=0);//progress time
+
+        void Drun(int=1);//start the day
 };
 
 //might not need to be class, can be only structure for collecting achievement only.

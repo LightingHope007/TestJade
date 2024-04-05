@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "gamefn.h"
+#include "Day.h"
 
 //using node LL(link list) as days.
 class LL{
@@ -16,6 +16,8 @@ public:
      void add_node(Day *&);
      int show_size();//using this for loop in main.c
      Day* get_node(int i);//for getting information of node.
+
+     void run();//run the game
 };
 
 #endif

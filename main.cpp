@@ -13,8 +13,13 @@ int main(){
     Day *t;
     int i;
     cout<<"Hello world"<<endl;
+
+    //create days
     for(i=0;i<7;i++) {
         t=new Day();
         L.add_node(t);
     }
+
+    //start game
+    L.run();
 }
