@@ -1,5 +1,5 @@
 compile: main.cpp
-	 g++ gamefn.cpp LL.cpp main.cpp -o start
+	 g++ main.cpp Player.cpp NODE.cpp LL.cpp -o start
 
 
 run: start

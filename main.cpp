@@ -3,23 +3,29 @@
 #include <time.h>//for random
 #include <cstring>
 
-#include "gamefn.h"
+#include "NODE.h"
+#include "Player.h"
 #include "LL.h"
+
+
 
 using namespace std;
 
 int main(){
-    LL L;
-    Day *t;
-    int i;
-    cout<<"Hello world"<<endl;
+    LL LP,LG;
+    NODE* t;
+    
+    int n,i;
 
-    //create days
-    for(i=0;i<7;i++) {
-        t=new Day();
-        L.add_node(t);
+    cout<<"How many players? "<<endl;
+    cin>>n;
+    for(i=1;i<=n;i++){
+        t= new NODE();
+        t->getPdata(i);
+        LP.add_node(t);
     }
-
-    //start game
-    L.run();
+    LP.run();
+    
+    
+    return 0;
 }
