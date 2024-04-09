@@ -12,8 +12,9 @@ class Player{
         string name;
         int point;
     public:
-        void getPdata(int=0);
-        void show_point();
+        void getPdata(int=0);//input name
+        void show_point();//for leaderboard
+        void addPoint(int=0);//gain point
 };
 
 

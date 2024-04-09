@@ -18,3 +18,8 @@ void Player::getPdata(int a){
 void Player::show_point(){
     cout<<setw(-20)<<name<<setw(5)<<point<<endl;
 }
+
+void Player::addPoint(int x){
+    point+=x;
+    
+}

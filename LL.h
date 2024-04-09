@@ -3,21 +3,22 @@
 
 #include <iostream>
 
-#include "Day.h"
+#include "NODE.h"
+#include "Player.h"
 
 //using node LL(link list) as days.
 class LL{
-     Day *hol;//head of link list pointer 
+     NODE *phol;//head of link list pointer 
      int size;
 public:
      LL();//Constructor
      ~LL();//Destructor
 
-     void add_node(Day *&);
+     void add_node(NODE*&);
      int show_size();//using this for loop in main.c
-     Day* get_node(int i);//for getting information of node.
+     NODE* get_node(int i);//for getting information of node.
 
-     void run();//run the game
+     void showscore();//run the game
 };
 
 #endif

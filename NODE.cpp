@@ -6,6 +6,7 @@ using namespace std;
 #include "Player.h"
 
 NODE::NODE(){
+    next=nullptr;
     cout<<"Node created"<<endl;
 }
 
@@ -18,5 +19,7 @@ NODE* NODE::move_next(){
 }
 
 void NODE::insert(NODE*& x){
-      x -> next = this;
+      next = x;
 }
+
+

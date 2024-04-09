@@ -6,10 +6,10 @@
 using namespace std;
 
 #include "Player.h"
+#include "Minigame.h"
 
-class NODE:public Player{
+class NODE:public Player, public miniG{
     private:
-        NODE* Me;
         NODE* next;
     public:
         NODE();
