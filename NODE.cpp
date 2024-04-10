@@ -7,11 +7,11 @@ using namespace std;
 
 NODE::NODE(){
     next=nullptr;
-    cout<<"Node created"<<endl;
+    //cout<<"Node created"<<endl;
 }
 
 NODE::~NODE(){
-    cout<<"NOde gone"<<endl;
+    //cout<<"NOde gone"<<endl;
 }
 
 NODE* NODE::move_next(){

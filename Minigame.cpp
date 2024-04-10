@@ -7,11 +7,11 @@ using namespace std;
 
 miniG::miniG(int x){
     num=x;
-    cout<<"Minigame created"<<endl;
+    //cout<<"Minigame created"<<endl;
 }
 
 miniG:: ~miniG(){
-      cout << "Minigame deleted" << endl;
+      //cout << "Minigame deleted" << endl;
 }
 
 void miniG::selectgame(int a){
@@ -19,9 +19,10 @@ void miniG::selectgame(int a){
       cin>>num;
       cin.clear();
       cin.ignore(10000,'\n');
+      cout<<num<<endl;
 }
 
-void miniG::run(int x){
+int miniG::run(int x){
       switch(x){
             case 1:
                   cout<<"game1"<<endl;
@@ -32,8 +33,14 @@ void miniG::run(int x){
             case 3:
                   cout<<"game3"<<endl;
                   break;
-                  defualt: break;
+            defualt: break;
       }
+
+      return 3;
+}
+
+int miniG::show_num(){
+      return num;
 }
 
 

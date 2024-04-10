@@ -8,7 +8,7 @@
 
 //using node LL(link list) as days.
 class LL{
-     NODE *phol;//head of link list pointer 
+     NODE *hol;//head of link list pointer 
      int size;
 public:
      LL();//Constructor
@@ -17,8 +17,10 @@ public:
      void add_node(NODE*&);
      int show_size();//using this for loop in main.c
      NODE* get_node(int i);//for getting information of node.
+     NODE* head();
 
-     void showscore();//run the game
+     void showscore();
+     void run(NODE*);//run the game
 };
 
 #endif

@@ -35,6 +35,8 @@ int main(){
     }
     
     //run the game
+    LG.run(LP.head());
+
 
     //สรุปคะแนน
     LP.showscore();

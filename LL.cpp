@@ -6,7 +6,7 @@
 using namespace std;
 
 LL::LL(){
-     phol = nullptr;
+     hol = NULL;
      size = 0;//size need to be 7 (7 days)
 }
 
@@ -14,8 +14,8 @@ LL::~LL(){
      int i;
      
      for(i = 0; i < size; i++){
-          NODE *t = phol;
-          phol = phol->move_next();
+          NODE *t = hol;
+          hol = hol->move_next();
           delete t;
      }
      size = 0;
@@ -23,9 +23,9 @@ LL::~LL(){
 
 //add node: first input is head
 void LL::add_node(NODE *&A){
-     NODE* t=phol;
-     if(phol==nullptr){
-          phol = A;
+     NODE* t=hol;
+     if(hol==NULL){
+          hol = A;
           size++;
           return;
      }
@@ -46,21 +46,25 @@ int LL::show_size(){
 //this is for checking NODE loop
 NODE *LL::get_node(int index){
      if(index < 0 || index >= size) 
-          return nullptr;// out of bounds
+          return NULL;// out of bounds
 
-     NODE *t = phol;
+     NODE *t = hol;
      int i;
      for (i = 0; i < index; i++){ 
-          if (t == nullptr) return nullptr; // Should not happen, but handle it defensively
+          if (t == NULL) return NULL; // Should not happen, but handle it defensively
           t = t->move_next();
      }
      return t;
 }
 
+NODE *LL::head(){
+     return hol;
+}
+
 //show players' score
 void LL::showscore(){
      int i;
-     NODE *t = phol;
+     NODE *t = hol;
 
      cout<<"----------------------------------"<<endl
      <<"Leaderboard"<<endl
@@ -69,4 +73,20 @@ void LL::showscore(){
           t->show_point();
           t=t->move_next();
      }
+}
+
+void LL::run(NODE* x){
+     int i,j;
+     NODE *t = hol,*v;
+     for(i = 0; i < size; i++){
+          v = x;
+          for(j = 0; 1; j++){
+               
+               v->addPoint(t->run(t->show_num()));
+               if(v->move_next()==NULL) break;
+               v=v->move_next();
+          }
+          t=t->move_next();
+     }
+     cout<<"DONE!"<<endl;
 }

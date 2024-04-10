@@ -6,7 +6,6 @@
 using namespace std;
 
 
-
 class miniG{
     friend class Player;
 
@@ -16,7 +15,8 @@ class miniG{
         miniG(int=0);
         ~miniG();
         void selectgame(int =0);
-        void run(int =0);
+        int run(int =0);
+        int show_num();
         
 };
 
