@@ -81,6 +81,10 @@ void LL::run(NODE* x){
      for(i = 0; i < size; i++){
           v = x;
           for(j = 0; 1; j++){
+               system("clear");
+               cout<<"Game "<<i+1<<" Player "<<j+1<<endl;
+               cout << "Press Enter to Continue";
+               cin.ignore();
                
                v->addPoint(t->run(t->show_num()));
                if(v->move_next()==NULL) break;

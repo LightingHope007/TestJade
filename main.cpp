@@ -18,6 +18,7 @@ int main(){
     int n,i;
 
     //input player
+    system("clear");
     cout<<"How many players? "<<endl;
     cin>>n;
     for(i=1;i<=n;i++){
@@ -26,6 +27,7 @@ int main(){
         LP.add_node(t);
     }
     //select minigame
+    system("clear");
     cout<<"How many games? "<<endl;
     cin>>n;
     for(i=1;i<=n;i++){
@@ -39,6 +41,7 @@ int main(){
 
 
     //สรุปคะแนน
+    system("clear");
     LP.showscore();
     
     
