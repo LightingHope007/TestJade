@@ -42,20 +42,24 @@ double DisplayQuestion(){
         {
         case 0 :
             ans = a[0] + a[1];
+            cout<<"================"<<endl;
             cout<<a[0]<<" + "<<a[1]<<" = ";
             break;
         case 1 :
             ans = a[0] - a[1];
+            cout<<"================"<<endl;
             cout<<a[0]<<" - "<<a[1]<<" = ";
             break;
         case 2 :
             ans = a[0] * (int(a[1])%12+1);
+            cout<<"================"<<endl;
             cout<<a[0]<<" x "<<int(a[1])%12+1<<" = ";
             mod++;
             break;
         case 3 :
             ans = a[0] / (int(a[1])%12+1);
             ans = round(ans);
+            cout<<"====================="<<endl;
             cout<<ans*(int(a[1])%12+1)<<" / "<<int(a[1])%12+1<<" = ";
             mod++;
             break;
@@ -106,12 +110,14 @@ int Math_G() {
         point--;
     } 
     std::cout <<"Your time is "<<std::setw(3)<< elapsed_seconds.count() << std::endl;
-      
+      cout<<"================"<<endl;
       count++;
     }
 
     if(point<0)point=0;
-    cout<<"Point : "<<point<<endl;
+    cout<<"     +---------+"<<endl;
+    cout<<"     |Point : "<<point<<"|"<<endl;
+    cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
     cin.ignore();
 
