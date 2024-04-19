@@ -18,7 +18,7 @@ using namespace std;
 
 int Check_Ans(char[], string, int);
 
-int main()
+int PS()
 {
     srand(time(nullptr));
     char asciiChars[20];
@@ -156,7 +156,7 @@ int main()
     cout<<"        |Point : "<<point<<"|"<<endl;
     cout<<"        +---------+"<<endl;
 
-    return 0;
+    return point;
 }
 
 

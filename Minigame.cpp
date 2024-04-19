@@ -5,6 +5,7 @@
 using namespace std;
 #include "Minigame.h"
 #include "Math.h"
+#include "PS.h"
 
 miniG::miniG(int x){
     num=x;
@@ -17,7 +18,7 @@ miniG:: ~miniG(){
 
 void miniG::selectgame(int a){
       cout<<"Choose minigame"<<a<< " : "<<endl
-      <<"1.Math"<<endl<<"2.WIP"<<endl<<"3.WIP"<<endl<<"4.Random"<<endl;
+      <<"1.Math"<<endl<<"2.Plant the seed"<<endl<<"3.WIP"<<endl<<"4.Random"<<endl;
       cin>>num;
       cin.clear();
       cin.ignore(10000,'\n');
@@ -35,6 +36,7 @@ int miniG::run(int x){
                   break;
             case 2:
                   cout<<"game2"<<endl;
+                  p=PS();
                   break;
             case 3:
                   cout<<"game3"<<endl;
