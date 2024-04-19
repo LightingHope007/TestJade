@@ -152,9 +152,11 @@ int PS()
         std::cout << "Your Time is " << std::setw(3) << elapsed_seconds.count() << " seconds" << std::endl;
         cout<<"============================"<<endl;
     }
-    cout<<"        +---------+"<<endl;
-    cout<<"        |Point : "<<point<<"|"<<endl;
-    cout<<"        +---------+"<<endl;
+    cout<<"     +---------+"<<endl;
+    cout<<"     |Point : "<<point<<"|"<<endl;
+    cout<<"     +---------+"<<endl;
+    cout << "Press Enter to Continue";
+    cin.ignore();
 
     return point;
 }

@@ -1,5 +1,5 @@
-#ifndef PlantTheTree_h
-#define PlantTheTree_h
+#ifndef PTT_h
+#define PTT_h
 
 #include <iostream>
 #include <cstdlib>
@@ -9,7 +9,6 @@
 
 #include "NODE.h"
 #include "LL.h"
-#include "PTT_class.h"
 
 using namespace std;
 
@@ -31,9 +30,11 @@ int PTT(){
         wordL.add_node(t);
     }
 
-    wordL.PTTrun(score,5);
+    wordL.PTTrun(&score,5);
 
-    cout<<score<<endl;
+    cout<<"     +---------+"<<endl;
+    cout<<"     |Point : "<<score<<"|"<<endl;
+    cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
     cin.ignore();
 

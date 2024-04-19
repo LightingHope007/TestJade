@@ -20,7 +20,9 @@ public:
      NODE* head();
 
      void showscore();
-     void run(NODE*);//run the game
+     void run(NODE*);//run the game\
+
+     void PTTrun(int*,int=1);
 };
 
 #endif

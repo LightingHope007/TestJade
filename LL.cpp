@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>//for random
+#include <time.h>//for random
 
 #include "LL.h"
 #include "NODE.h"
@@ -93,4 +95,14 @@ void LL::run(NODE* x){
           t=t->move_next();
      }
      cout<<"DONE!"<<endl;
+}
+
+void LL::PTTrun(int *a, int b){
+     int i;
+     NODE *t;
+     srand(time(NULL));
+     for(i=0;i<b;i++){
+          t=get_node(rand()%size);
+          *a=t->Tquestion();
+     }
 }

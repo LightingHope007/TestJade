@@ -7,8 +7,9 @@ using namespace std;
 
 #include "Player.h"
 #include "Minigame.h"
+#include "PTT_class.h"
 
-class NODE:public Player, public miniG{
+class NODE:public Player, public miniG, public PTTquiz{
     private:
         NODE* next;
     public:
