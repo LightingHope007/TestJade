@@ -19,7 +19,7 @@ miniG:: ~miniG(){
 
 void miniG::selectgame(int a){
       cout<<"Choose minigame"<<a<< " : "<<endl
-      <<"1.Math"<<endl<<"2.Plant the seed"<<endl<<"3.Plant the Tree"<<endl<<"4.Random"<<endl;
+      <<"1.Math\n" << "2.Plant the seed\n" << "3.Plant the Tree\n" << "4.Pick up the trash\n" << "5.Random"<< endl;
       cin>>num;
       cin.clear();
       cin.ignore(10000,'\n');
@@ -29,7 +29,7 @@ void miniG::selectgame(int a){
 int miniG::run(int x){
       srand(time(NULL));
       int p=0,g=x;
-      if(g==4) g=rand()%3+1;
+      if(g==5) g=rand()%4+1;
       switch(g){
             case 1:
                   cout<<"game1"<<endl;
@@ -43,6 +43,10 @@ int miniG::run(int x){
                   cout<<"game3"<<endl;
                   p=PTT();
                   break;
+            case 4:
+                  cout << "game4" << endl;
+                  p = clickygame();
+                  break;
             defualt: break;
       }
 
@@ -52,9 +56,3 @@ int miniG::run(int x){
 int miniG::show_num(){
       return num;
 }
-
-
-
-
-
-
