@@ -3,6 +3,9 @@
 #include <time.h>//for random
 #include <cstring>
 #include <exception>
+#include <chrono>
+#include <thread>
+#include <cmath>
 
 #include "NODE.h"
 #include "Player.h"
@@ -11,6 +14,8 @@
 
 
 using namespace std;
+using namespace std::this_thread; // sleep_for, sleep_until
+using namespace std::chrono; // nanoseconds, system_clock, seconds
 
 class myexception: public exception
 {
@@ -45,16 +50,13 @@ int main(){
             cout<<"+=================+"<<endl;
             cout<<"Ans : ";
             cin>>n;
-            if(cin.fail())
+            n=round(n);
+            if(cin.fail()||n<1)
             {
-                system("clear");
                 checkstr();
             }  
-            else{
-            cout<<"-------------------"<<endl;  
-            break;
-            }  
-               
+            cout<<"-------------------"<<endl;   
+            break; 
         }
         catch(exception &e )
                 {
@@ -64,15 +66,37 @@ int main(){
     }
       
     
-    for(i=1;i<=n;i++){
+    for(i=1;i<=round(n);i++){
         t= new NODE();
         t->getPdata(i);
         LP.add_node(t);
     }
+
     //select minigame
     system("clear");
-    cout<<"How many games? "<<endl;
-    cin>>n;
+    while(1)
+    {
+        try{
+            cout<<"+=================+"<<endl;
+            cout<<"How many games? "<<endl;
+            cout<<"+=================+"<<endl;
+            cout<<"Ans : ";
+            cin>>n;
+            if(cin.fail()||n<1)
+            {
+                checkstr();
+            }
+            cout<<"-------------------"<<endl; 
+            break;   
+               
+        }
+        catch(exception &e )
+                {
+                    cerr<<e.what()<<endl; 
+                    
+                }
+    }
+
     for(i=1;i<=n;i++){
         t= new NODE();
         t->selectgame(i);

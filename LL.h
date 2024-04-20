@@ -22,7 +22,7 @@ public:
      void showscore();
      void run(NODE*);//run the game\
 
-     void PTTrun(int*,int=1);
+     void PTTrun(int*,double*);
 };
 
 #endif
