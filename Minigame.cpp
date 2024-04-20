@@ -7,6 +7,7 @@ using namespace std;
 #include "Math.h"
 #include "PS.h"
 #include "PTT.h"
+#include "clickygame.h"
 
 miniG::miniG(int x){
     num=x;
