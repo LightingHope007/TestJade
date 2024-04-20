@@ -15,82 +15,22 @@
 #include <ctime>
 
 using namespace std;
+using namespace chrono;
 
 int Check_Ans(char[], string, int);
+string GenQuestion(char[], int*);
 
 int PS()
 {
     srand(time(nullptr));
     char asciiChars[20];
     int point = 0, ex;
+    double time=60;
 
-    for (int j = 0; j < 3; j++)
+    while (time>0)
     {
-        if (j == 0)
-        {
-            for (int i = 0; i < 17; i += 4)
-            {
-                switch (rand() % 2)
-                {
-                case 0:
-                    asciiChars[i] = static_cast<char>((rand() % 26) + 65); 
-                case 1:
-                    asciiChars[i] = static_cast<char>((rand() % 26) + 97); 
-                    break;
-                default:
-                    break;
-                }
-                for (int n = i + 1; n < (i + 4); n++)
-                {
-                    asciiChars[n] = ' ';
-                }
-            }
-            ex = 17;
-        }
-        else if (j == 1)
-        {
-            for (int i = 0; i < 13; i += 3)
-            {
-                switch (rand() % 2)
-                {
-                case 0:
-                    asciiChars[i] = static_cast<char>((rand() % 26) + 65);
-                    break;
-                case 1:
-                    asciiChars[i] = static_cast<char>((rand() % 26) + 97); 
-                    break;
-                default:
-                    break;
-                }
-                for (int n = i + 1; n < (i + 3); n++)
-                {
-                    asciiChars[n] = ' ';
-                }
-            }
-            ex = 13;
-        }
-        else
-        {
-            for (int i = 0; i < 15; i += 2)
-            {
-                switch (rand() % 2)
-                {
-                case 0:
-                    asciiChars[i] = static_cast<char>((rand() % 26) + 65); 
-                    break;
-                case 1:
-                    asciiChars[i] = static_cast<char>((rand() % 26) + 97); 
-                    break;
-                default:
-                    break;
-                }
-                for (int n = i + 1; n < (i + 2); n++)
-                {
-                    asciiChars[n] = ' ';
-                }
-            }
-            ex = 15;
-        }
+        GenQuestion(asciiChars,&ex);
+
         cout<<"    ";
         for(int line = -1; line <=ex;line++)
         {
@@ -126,15 +66,15 @@ int PS()
         cout<<endl;
         cout << "Ans: ";
 
-        auto start = std::chrono::steady_clock::now();
+        auto start = steady_clock::now();
         string answerIn;
-        std::getline(std::cin, answerIn);
+        getline(cin, answerIn);
 
-        auto end = std::chrono::steady_clock::now();
-        std::chrono::duration<double> elapsed_seconds = end - start;
+        auto end = steady_clock::now();
+        duration<double> elapsed_seconds = end - start;
         if (Check_Ans(asciiChars, answerIn , ex) == 0)
         {
-            std::cout << "Correct" << std::endl;
+            cout << "Correct" << endl;
             if (elapsed_seconds.count() < 15)
             {
                 point++;
@@ -142,15 +82,16 @@ int PS()
         }
         else
         {
-            std::cout << "Incorrect" << std::endl;
+            cout << "Incorrect" << endl;
         }
 
         if (elapsed_seconds.count() > 15)
         {
-            std::cout << "Too Late" << std::endl;
+            cout << "Too Late" << endl;
         }
-        std::cout << "Your Time is " << std::setw(3) << elapsed_seconds.count() << " seconds" << std::endl;
+        cout << "Your Time is " << setw(3) << elapsed_seconds.count() << " seconds" << endl;
         cout<<"============================"<<endl;
+        time-=elapsed_seconds.count();
     }
     cout<<"     +---------+"<<endl;
     cout<<"     |Point : "<<point<<"|"<<endl;
@@ -173,4 +114,35 @@ int Check_Ans(char correctAns[], string userAns, int c)
         }
     }
     return 0; 
+}
+string GenQuestion(char question[], int* a){
+    int k,j;
+    char* t=question;
+    srand(time(NULL));
+    switch(rand()%3){
+        case 0: j=17; k=4; break;
+        case 1: j=13; k=3; break;
+        case 2: j=15; k=2; break;
+    }
+
+
+    for (int i = 0; i < j; i += k)
+            {
+                switch (rand() % 2)
+                {
+                case 0:
+                    question[i] = static_cast<char>((rand() % 26) + 65); 
+                case 1:
+                    question[i] = static_cast<char>((rand() % 26) + 97); 
+                    break;
+                default:
+                    break;
+                }
+                for (int n = i + 1; n < (i + 4); n++)
+                {
+                    question[n] = ' ';
+                }
+            }
+            (*a)=j;
+            return question;
 }

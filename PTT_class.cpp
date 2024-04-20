@@ -1,7 +1,14 @@
 #include <iostream>
 #include <iomanip>
 #include <cstring>
+#include <cstdlib>
+#include <ctime>
+#include <chrono>
+#include <thread>
+
 using namespace std;
+using namespace chrono;
+using namespace this_thread;
 
 #include "PTT_class.h"
 
@@ -27,20 +34,29 @@ void PTTquiz::Tgetdata(string snew){
     }
 }
 
-int PTTquiz::Tquestion(){
+int PTTquiz::Tquestion(double* x){
     string answer;
-    while(1){
+        system("clear");
         cout<<word<<endl;
+
+        //take input
+        auto start = steady_clock::now();//start timer
+
         cin>>answer;
         cin.clear();
         cin.ignore(10000,'\n');
+
+        auto end = steady_clock::now();//end timer
+        duration<double> elapsed_seconds = end - start;//time difference
+        (*x)-=elapsed_seconds.count();
+
         system("clear");
         if(answer!=word){
-            cout<<"wrong!"<<endl;        
-            continue;
+            cout<<"wrong!"<<endl
+            <<"You type: "<<answer<<endl;    
+            sleep_for(seconds(3));
+            (*x)-=3; 
         }
-        break;
-    }
-    cout<<"correct!"<<endl;
+        else cout<<"correct!"<<endl;
     return point;
 }

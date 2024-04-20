@@ -1,11 +1,15 @@
 #include <iostream>
 #include <cstdlib>//for random
 #include <time.h>//for random
+#include <chrono>
+#include <thread>
 
 #include "LL.h"
 #include "NODE.h"
 #include "Player.h"
 using namespace std;
+using namespace chrono;
+using namespace this_thread;
 
 LL::LL(){
      hol = NULL;
@@ -97,12 +101,15 @@ void LL::run(NODE* x){
      cout<<"DONE!"<<endl;
 }
 
-void LL::PTTrun(int *a, int b){
+void LL::PTTrun(int *a, double* b){
      int i;
      NODE *t;
+     double sub;
      srand(time(NULL));
-     for(i=0;i<b;i++){
+     while((*b)>0){
           t=get_node(rand()%size);
-          *a=t->Tquestion();
+          (*a)+=t->Tquestion(&sub);
+          (*b)+=sub;
+          
      }
 }

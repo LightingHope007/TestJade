@@ -17,7 +17,7 @@ int PTT(){
     LL wordL;
     NODE* t;
     int score;
-
+    double time=60;
 
     // Read from the text file
     ifstream pool("PTT_pool.txt");
@@ -30,7 +30,7 @@ int PTT(){
         wordL.add_node(t);
     }
 
-    wordL.PTTrun(&score,5);
+    wordL.PTTrun(&score,&time);
 
     cout<<"     +---------+"<<endl;
     cout<<"     |Point : "<<score<<"|"<<endl;

@@ -5,8 +5,10 @@
 #include <cmath>
 
 using namespace std;
+using namespace chrono;
 
 int mod;
+int Check_Ans(string, string);
 
 double Decimal(double num) 
     {
@@ -71,27 +73,26 @@ int Math_G() {
     
     int point = 0;
     int count = 0 ;
-    while(count != 3)
+    double time=60;
+    while(time>0)
     {
         mod=1;//set modifier
         //count time
-        auto start = std::chrono::steady_clock::now();
+        auto start = steady_clock::now();
         //add-on display 
         cout<<"================"<<endl<<"Question "<<count+1<<endl;
         //
-        double ans = DisplayQuestion();//show question
-
-        double answerIn;
-        std::cin>>answerIn;
-        cin.clear();
-        cin.ignore(10000,'\n');
-
-        auto end = std::chrono::steady_clock::now(); 
-        std::chrono::duration<double> elapsed_seconds = end - start;
+        int ans = DisplayQuestion();//show question
+        string numtostr = to_string(ans);
+        string answerIn;
+        getline(cin, answerIn);
+        
+        auto end = steady_clock::now(); 
+        duration<double> elapsed_seconds = end - start;
         system("clear");
-        if(answerIn == ans)//funtion return
+        if(Check_Ans(numtostr, answerIn) == 0)//funtion return
         {
-            std::cout<<"Correct!"<<std::endl;
+            cout<<"Correct!"<<endl;
             if(elapsed_seconds.count()<10)
             { 
               point+=mod;  
@@ -101,27 +102,41 @@ int Math_G() {
         }   
         else
         {
-         std::cout<<"Incorrect!"<<std::endl; 
+         cout<<"Incorrect!"<<endl; 
         }
     
     if(elapsed_seconds.count()>10)
     {
-        std::cout << "Too Late" << std::endl;
+        cout << "Too Late" << endl;
         point--;
     } 
-    std::cout <<"Your time is "<<std::setw(3)<< elapsed_seconds.count() << std::endl;
-      cout<<"================"<<endl;
-      count++;
+    cout <<"Your time is "<<setw(3)<< elapsed_seconds.count() << endl;
+    cout<<"================"<<endl;
+    time-=elapsed_seconds.count();
     }
+    
 
     if(point<0)point=0;
     cout<<"     +---------+"<<endl;
     cout<<"     |Point : "<<point<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
+
     cin.ignore();
+    cin.get();
 
     return point;
-    
-    
+}
+
+int Check_Ans(string correctAns, string userAns)
+{
+    if(userAns.length() > correctAns.length()) return 1;
+    for (int n = 0; n < correctAns.length() ; n++)
+    {
+        if (correctAns[n] != userAns[n])
+        {
+            return 1;
+        }
+    }
+    return 0; 
 }
