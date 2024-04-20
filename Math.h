@@ -121,7 +121,6 @@ int Math_G() {
     cout<<"     |Point : "<<point<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
-
     cin.ignore();
     cin.get();
 
