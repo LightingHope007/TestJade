@@ -54,7 +54,7 @@ int PTTquiz::Tquestion(double* x){
         if(answer!=word){
             cout<<"wrong!"<<endl
             <<"You type: "<<answer<<endl;    
-            sleep_for(seconds(3));
+            sleep_for(seconds(2));
             (*x)-=3; 
         }
         else cout<<"correct!"<<endl;

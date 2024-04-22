@@ -7,17 +7,17 @@
 #include <cstring>
 #include <fstream>
 
-#include "NODE.h"
+#include "PTT_class.h"
 #include "LL.h"
 
 using namespace std;
-
+//run the game
 int PTT(){
     string myText;
     LL wordL;
     NODE* t;
-    int score;
-    double time=60;
+    int score=0;
+    double time=30;
 
     // Read from the text file
     ifstream pool("PTT_pool.txt");
@@ -25,7 +25,7 @@ int PTT(){
     // Use a while loop together with the getline() function to read the file line by line
     while (getline (pool, myText)) {
     // Output the text from the file
-        t= new NODE();
+        t= new PTTquiz();
         t->Tgetdata(myText);
         wordL.add_node(t);
     }
@@ -36,7 +36,8 @@ int PTT(){
     cout<<"     |Point : "<<score<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
-    cin.ignore();
+    cin.clear();
+    cin.ignore(10000,'\n');
 
     // Close the file
     pool.close();

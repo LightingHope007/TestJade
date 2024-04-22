@@ -5,18 +5,31 @@
 #include <iomanip>
 using namespace std;
 
-#include "Player.h"
-#include "Minigame.h"
-#include "PTT_class.h"
 
-class NODE:public Player, public miniG, public PTTquiz{
+
+class NODE{
     private:
         NODE* next;
     public:
         NODE();
-        ~NODE();
+        virtual ~NODE();
         NODE* move_next();//for LL.
         void insert(NODE*&);//for LL.
+
+        //for polymorph
+        //Player
+        virtual void getPdata(int);
+        virtual void show_point();
+        virtual void addPoint(int);
+        virtual int getPoint();
+        virtual string getname();
+        //miniG
+        virtual void selectgame(int);
+        virtual int run(int);
+        virtual int show_num();
+        //PTT_class
+        virtual void Tgetdata(string);
+        virtual int Tquestion(double*);
 };
 
 

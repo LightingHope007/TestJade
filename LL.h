@@ -16,13 +16,14 @@ public:
 
      void add_node(NODE*&);
      int show_size();//using this for loop in main.c
-     NODE* get_node(int i);//for getting information of node.
-     NODE* head();
+     NODE* get_node(int i);//for getting information of specific node.
+     NODE* head();//call for head of node
 
-     void showscore();
-     void run(NODE*);//run the game\
+     void showscore();//showleaderboard
+     void run(NODE*);//run the game
+     void SortnShow(NODE*);//Sort the List and show after
 
-     void PTTrun(int*,double*);
+     void PTTrun(int*,double*);//For running Plant the Tree game
 };
 
 #endif

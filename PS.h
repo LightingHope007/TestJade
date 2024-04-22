@@ -19,18 +19,23 @@ using namespace chrono;
 
 int Check_Ans(char[], string, int);
 string GenQuestion(char[], int*);
-
+//run
 int PS()
 {
     srand(time(nullptr));
     char asciiChars[20];
-    int point = 0, ex;
-    double time=60;
+    int point = 0, ex, mod;
+    double time=30;
 
     while (time>0)
     {
         GenQuestion(asciiChars,&ex);
-
+        switch(ex){
+            case 17: mod=1; break;
+            case 15: mod=2; break;
+            case 13: mod=3; break;
+            defualt: break;
+        }
         cout<<"    ";
         for(int line = -1; line <=ex;line++)
         {
@@ -77,7 +82,7 @@ int PS()
             cout << "Correct" << endl;
             if (elapsed_seconds.count() < 15)
             {
-                point++;
+                point+=mod;
             }
         }
         else
@@ -97,12 +102,12 @@ int PS()
     cout<<"     |Point : "<<point<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
-    cin.ignore();
+    cin.clear();
+    cin.ignore(10000,'\n');
 
     return point;
 }
-
-
+//check correction
 int Check_Ans(char correctAns[], string userAns, int c)
 {
     if(userAns.length() > c) return 1;
@@ -115,6 +120,7 @@ int Check_Ans(char correctAns[], string userAns, int c)
     }
     return 0; 
 }
+//generate stage
 string GenQuestion(char question[], int* a){
     int k,j;
     char* t=question;
@@ -123,6 +129,7 @@ string GenQuestion(char question[], int* a){
         case 0: j=17; k=4; break;
         case 1: j=13; k=3; break;
         case 2: j=15; k=2; break;
+        default: break;
     }
 
 
@@ -132,6 +139,7 @@ string GenQuestion(char question[], int* a){
                 {
                 case 0:
                     question[i] = static_cast<char>((rand() % 26) + 65); 
+                    break;
                 case 1:
                     question[i] = static_cast<char>((rand() % 26) + 97); 
                     break;

@@ -51,6 +51,7 @@ int clickygame(){
     cout<<"     |Point : "<<score<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
+    cin.clear();
     cin.ignore(10000,'\n');
     return score;  
 }

@@ -63,8 +63,8 @@ int quicktime(){
     cout<<"     |Point : "<<score<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
-    cin.ignore();
-    cin.get();
+    cin.clear();
+    cin.ignore(10000,'\n');
 
     return score; 
 }

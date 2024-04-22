@@ -14,7 +14,7 @@ double Decimal(double num)
     {
     return round(num * 100) / 100;
     }
-double DisplayQuestion(){
+double DisplayQuestion(){ //Make question
     srand(time(NULL));
     double a[2];
     double ans;
@@ -61,7 +61,7 @@ double DisplayQuestion(){
         case 3 :
             ans = a[0] / (int(a[1])%12+1);
             ans = round(ans);
-            cout<<"====================="<<endl;
+            cout<<"================"<<endl;
             cout<<ans*(int(a[1])%12+1)<<" / "<<int(a[1])%12+1<<" = ";
             mod++;
             break;
@@ -69,18 +69,20 @@ double DisplayQuestion(){
         
     return ans;
 }
-int Math_G() {
+//run
+int Math_G() { 
     
     int point = 0;
     int count = 0 ;
-    double time=60;
+    double time=30;
     while(time>0)
     {
+        count++;
         mod=1;//set modifier
         //count time
         auto start = steady_clock::now();
         //add-on display 
-        cout<<"================"<<endl<<"Question "<<count+1<<endl;
+        cout<<"================"<<endl<<"Question "<<count<<endl;
         //
         int ans = DisplayQuestion();//show question
         string numtostr = to_string(ans);
@@ -89,10 +91,12 @@ int Math_G() {
         
         auto end = steady_clock::now(); 
         duration<double> elapsed_seconds = end - start;
+
         system("clear");
+
         if(Check_Ans(numtostr, answerIn) == 0)//funtion return
         {
-            cout<<"Correct!"<<endl;
+            cout<<"Correct! Get "<<mod<<"points"<<endl;
             if(elapsed_seconds.count()<10)
             { 
               point+=mod;  
@@ -121,13 +125,13 @@ int Math_G() {
     cout<<"     |Point : "<<point<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
-    cin.ignore();
-    cin.get();
+    cin.clear();
+    cin.ignore(10000,'\n');
 
     return point;
 }
-
-int Check_Ans(string correctAns, string userAns)
+//anser correction
+int Check_Ans(string correctAns, string userAns) 
 {
     if(userAns.length() > correctAns.length()) return 1;
     for (int n = 0; n < correctAns.length() ; n++)

@@ -7,15 +7,15 @@
 #include <thread>
 #include <cmath>
 
-#include "NODE.h"
 #include "Player.h"
+#include "Minigame.h"
 #include "LL.h"
 
 
 
 using namespace std;
-using namespace std::this_thread; // sleep_for, sleep_until
-using namespace std::chrono; // nanoseconds, system_clock, seconds
+using namespace this_thread; // sleep_for, sleep_until
+using namespace chrono; // nanoseconds, system_clock, seconds
 
 class myexception: public exception
 {
@@ -35,7 +35,7 @@ void checkstr()
 }
 
 int main(){
-    LL LP,LG;
+    LL LP,LG,test;
     NODE* t;
     
     int n,i;
@@ -67,11 +67,11 @@ int main(){
       
     
     for(i=1;i<=round(n);i++){
-        t= new NODE();
+        t= new Player();
         t->getPdata(i);
         LP.add_node(t);
     }
-
+    
     //select minigame
     system("clear");
     while(1)
@@ -98,18 +98,18 @@ int main(){
     }
 
     for(i=1;i<=n;i++){
-        t= new NODE();
+        t= new miniG();
         t->selectgame(i);
         LG.add_node(t);
     }
     
     //run the game
     LG.run(LP.head());
-
+    
 
     //สรุปคะแนน
     system("clear");
-    LP.showscore();
+    LP.SortnShow(LP.head());
     
     
     return 0;

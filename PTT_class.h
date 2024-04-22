@@ -6,14 +6,15 @@
 #include <cstring>
 using namespace std;
 
+#include "NODE.h"
 
-class PTTquiz{
+class PTTquiz: public NODE{
     private:
         int Diff,point;
         string word;
     public:
-        void Tgetdata(string);
-        int Tquestion(double*);
+        void Tgetdata(string);//setup difficulty and points
+        int Tquestion(double*);//run the stage
 };
 
 

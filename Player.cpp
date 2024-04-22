@@ -5,7 +5,10 @@ using namespace std;
 
 #include "Player.h"
 
-
+Player::Player(int x,string y){
+    point=x;
+    name=y;
+}
 
 void Player::getPdata(int a){
     cout<<"Player "<<a<< " name: ";
@@ -22,4 +25,12 @@ void Player::show_point(){
 void Player::addPoint(int x){
     point+=x;
     
+}
+
+int Player::getPoint(){
+    return point;
+}
+
+string Player::getname(){
+    return name;
 }

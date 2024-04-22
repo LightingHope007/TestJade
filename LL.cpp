@@ -3,6 +3,7 @@
 #include <time.h>//for random
 #include <chrono>
 #include <thread>
+#include <cstring>
 
 #include "LL.h"
 #include "NODE.h"
@@ -71,26 +72,29 @@ NODE *LL::head(){
 void LL::showscore(){
      int i;
      NODE *t = hol;
-
      cout<<"----------------------------------"<<endl
      <<"Leaderboard"<<endl
      <<"----------------------------------"<<endl;
+     
      for(i = 0; i < size; i++){
           t->show_point();
           t=t->move_next();
      }
 }
-
+//run the game
 void LL::run(NODE* x){
      int i,j;
+     string line;
      NODE *t = hol,*v;
      for(i = 0; i < size; i++){
           v = x;
           for(j = 0; 1; j++){
                system("clear");
                cout<<"Game "<<i+1<<" Player "<<j+1<<endl;
-               cout << "Press Enter to Continue";
-               cin.ignore();
+               cout << "Press Enter to Continue"<<endl;
+               cin.clear();
+               cin.ignore(10000,'\n');
+               
                
                v->addPoint(t->run(t->show_num()));
                if(v->move_next()==NULL) break;
@@ -100,7 +104,35 @@ void LL::run(NODE* x){
      }
      cout<<"DONE!"<<endl;
 }
-
+//sort high to low then show Leaderboard
+void LL::SortnShow(NODE* x){
+     LL newL;
+     NODE *t=x,*v;
+     int i,j,prevMax=0,CurrMax=0,temp;
+     string CurrName;
+     for(i=0;i<size;i++){
+          t=x;
+          CurrMax=0;
+          for(j=0;j<size;j++){
+               if(t->getPoint()>=CurrMax){
+                    if(prevMax==0){
+                         CurrMax=t->getPoint();
+                         CurrName=t->getname();
+                    }
+                    else if(t->getPoint()<prevMax&&prevMax!=0){
+                         CurrMax=t->getPoint();
+                         CurrName=t->getname();
+                    }
+               }
+               t=t->move_next();
+          }
+          prevMax=CurrMax;
+          v=new Player(CurrMax,CurrName);
+          newL.add_node(v);
+     }
+     newL.showscore();
+}
+//This is for PTTgame
 void LL::PTTrun(int *a, double* b){
      int i;
      NODE *t;

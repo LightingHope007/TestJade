@@ -5,8 +5,9 @@
 #include <iostream>
 using namespace std;
 
+#include "NODE.h"
 
-class miniG{
+class miniG: public NODE{
     friend class Player;
 
     private:
@@ -14,9 +15,9 @@ class miniG{
     public:
         miniG(int=0);
         ~miniG();
-        void selectgame(int =0);
-        int run(int =0);
-        int show_num();
+        void selectgame(int =0);//for startup
+        int run(int =0);//run the game
+        int show_num();//call for num value
         
 };
 
