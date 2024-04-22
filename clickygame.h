@@ -12,7 +12,7 @@ void displayTrashCan(int);
 int score_system(int);
 
 int clickygame(){
-    const int targetPresses = 2;//target to press.
+    const int targetPresses = 200;//target to press. default 200
     
     cout << "Press a and d " << targetPresses << " to pick up a trash!!!\n";
     cout << "Press Enter to start...\n";
@@ -51,8 +51,9 @@ int clickygame(){
     cout<<"     |Point : "<<score<<"|"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
-    cin.clear();
+    //cin.clear();
     cin.ignore(10000,'\n');
+    cin.clear();
     return score;  
 }
 
