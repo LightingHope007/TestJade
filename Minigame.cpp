@@ -9,6 +9,9 @@ using namespace std;
 #include "PTT.h"
 #include "clickygame.h"
 #include "quicktime.h"
+#include "TEXT.h"
+
+int g;
 
 miniG::miniG(int x){
     num=x;
@@ -20,21 +23,34 @@ miniG:: ~miniG(){
 }
 
 void miniG::selectgame(int a){
-      cout << "Choose minigame" << a << " : "<< endl;
-      cout <<"1.Math\n" << "2.Plant the seed\n" << "3.Plant the Tree\n" << "4.Pick up the trash\n" << "5.Build a school\n" << "6.Random"<< endl;
-      cin >> num;
-      cin.clear();
-      cin.ignore(10000,'\n');
-      cout << num << endl;
+      string ans;
+      int s;
+      do
+     {
+            cout << "Choose minigame" << a << " : "<< endl;
+            cout << "1.Math"<<endl
+             << "2.Plant the seed"<<endl
+             << "3.Plant the Tree"<<endl
+             << "4.Pick up the trash"<<endl
+             << "5.Build a school"<<endl
+             << "6.Random" << endl;
+
+        getline(std::cin, ans);
+        
+        s = Check_ans(ans);
+        
+    } while (ans == " "  || s == 1);
+    num=stoi(ans);
 }
 
 int miniG::run(int x){
       srand(time(NULL));
-      int p = 0, g = x;
+      int p = 0; 
+      g = x;
       if(g == 6) g = rand()% 5 + 1;
       switch(g){
             case 1:
-                  cout << "game1" << endl;
+                  mathintro();
                   p = Math_G();
                   break;
             case 2:
@@ -60,4 +76,36 @@ int miniG::run(int x){
 
 int miniG::show_num(){
       return num;
+}
+
+int miniG::Check_ans(string Ans)
+{
+    int n;
+    string a = "s";
+    string b;
+    if(Ans.length() > a.length()) return 1;
+
+    if(Ans.length() == a.length())
+    {
+        
+      if(Ans[0] == '1') return 0;
+      else if(Ans[0] == '2') return 0;
+      else if(Ans[0] == '3') return 0;
+      else if(Ans[0] == '4') return 0;
+      else if(Ans[0] == '5') return 0;
+      else if(Ans[0] == '6') return 0;
+      else
+      {
+        return 1;
+      }
+    }
+
+    for (int n = 0; n < Ans.length() ; n++)
+    {
+        if (' ' == Ans[n] )
+        {
+            return 1;
+        }
+    }
+    return 0; 
 }

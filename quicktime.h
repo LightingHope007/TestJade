@@ -18,7 +18,7 @@ int quicktime(){
     srand(time(0)); // Seed the random number generator
 
     cout << "Quickly! you need to push these log to build a school!!!\n";
-    cout << "when a random character aprear, input a character randnom times\n";
+    cout << "when a random character aprear, input a character random times\n";
     cout << "Press Enter to start...\n";
     while (cin.get() != '\n');
 
@@ -61,7 +61,7 @@ int quicktime(){
     int score = score_quicktime(time);
 
     cout<<"     +---------+"<<endl;
-    cout<<"     |Point : "<<score<<"|"<<endl;
+    cout<<"     |Point : "<<score<<" |"<<endl;
     cout<<"     +---------+"<<endl;
     cout << "Press Enter to Continue";
     cin.ignore(10000,'\n');

@@ -96,7 +96,7 @@ int Math_G() {
 
         if(Check_Ans(numtostr, answerIn) == 0)//funtion return
         {
-            cout<<"Correct! Get "<<mod<<"points"<<endl;
+            cout<<"Correct! Get "<<mod<<" points"<<endl;
             if(elapsed_seconds.count()<10)
             { 
               point+=mod;  

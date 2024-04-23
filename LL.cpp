@@ -8,6 +8,7 @@
 #include "LL.h"
 #include "NODE.h"
 #include "Player.h"
+
 using namespace std;
 using namespace chrono;
 using namespace this_thread;
@@ -91,7 +92,7 @@ void LL::run(NODE* x){
           for(j = 0; 1; j++){
                system("clear");
                cout<<"Game "<<i+1<<" Player "<<j+1<<endl;
-               cout << "Press Enter to Continue"<<endl;
+               cout << "Press Enter to Continue..."<<endl;
                cin.clear();
                cin.ignore(10000,'\n');
                

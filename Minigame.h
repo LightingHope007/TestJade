@@ -18,6 +18,7 @@ class miniG: public NODE{
         void selectgame(int =0);//for startup
         int run(int =0);//run the game
         int show_num();//call for num value
+        int Check_ans(string ="none");
         
 };
 
