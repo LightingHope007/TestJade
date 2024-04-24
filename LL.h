@@ -4,7 +4,8 @@
 #include <iostream>
 
 #include "NODE.h"
-#include "Player.h"
+
+class NODE;
 
 //using node LL(link list) as days.
 class LL{
@@ -19,6 +20,7 @@ public:
      NODE* get_node(int i);//for getting information of specific node.
      NODE* head();//call for head of node
 
+     int checkname(string,NODE*);
      void showscore();//showleaderboard
      void run(NODE*);//run the game
      void SortnShow(NODE*);//Sort the List and show after

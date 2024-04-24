@@ -64,14 +64,18 @@ int main(){
         if(ch[i] == ' ') break;
         }
         if (ch[i] != ' ' && ch != "") { // ตรวจสอบว่า ch ไม่เป็น Spacebar
-            n = stoi(ch); // ใช้ std::stoi() เพื่อแปลง string เป็น int
+            try{
+                n = stoi(ch);
+            } // ใช้ std::stoi() เพื่อแปลง string เป็น int
+            catch(const std::exception&){
+                n=-1;
+            }
         }
     }while(ch == " " || n <= 0);
-      
     
     for(i=1;i<=round(n);i++){
         t= new Player();
-        t->getPdata(i);
+        t->getPdata(i,&LP);
         LP.add_node(t);
     }
     
@@ -91,7 +95,10 @@ int main(){
         if(ch[i] == ' ') break;
         }
         if (ch[i] != ' ' && ch != "") { // ตรวจสอบว่า ch ไม่เป็น Spacebar
-            n = stoi(ch); // ใช้ std::stoi() เพื่อแปลง string เป็น int
+            try{n = stoi(ch);} // ใช้ std::stoi() เพื่อแปลง string เป็น int
+            catch(const std::exception&){
+                n=-1;
+            }
         }
     }while(ch == " " || n <= 0);
     

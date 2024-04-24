@@ -33,7 +33,8 @@ int clickygame(){
         pick = cin.get();
         if ((pick == 'a' && prevpick != 'a') || (pick == 'd' && prevpick != 'd')){
             prevpick = pick;
-            pressed++;    
+            pressed++;
+            
         }
         system("clear");      
     }
@@ -91,12 +92,12 @@ void displayTrashCan(int x){//input is 1 to 100
 }
 
 int score_system(int x){
-    if (x <= 20)
-        return 70;
-    else if (x >= 30)
+    if (x <= 30)
+        return 10;
+    else if (x >= 40)
         return 0;
     else
-        return (10 - (x - 20))*7;
+        return (10 - (x - 30))*7;
 }
 
 #endif

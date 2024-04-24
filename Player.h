@@ -6,7 +6,9 @@
 #include <cstring>
 using namespace std;
 
+#include "LL.h"
 #include "NODE.h"
+
 
 class Player:public NODE{
     private:
@@ -14,7 +16,7 @@ class Player:public NODE{
         int point;
     public:
         Player(int=0,string="none");//constructer
-        void getPdata(int=0);//input name
+        void getPdata(int,LL*);//input name
         void show_point();//for leaderboard
         void addPoint(int=0);//gain point
         int getPoint();//call for point

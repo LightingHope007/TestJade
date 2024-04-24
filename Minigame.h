@@ -7,11 +7,12 @@ using namespace std;
 
 #include "NODE.h"
 
+
 class miniG: public NODE{
     friend class Player;
 
     private:
-        int num;
+        int num,ran;
     public:
         miniG(int=0);
         ~miniG();

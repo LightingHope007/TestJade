@@ -4,17 +4,24 @@
 using namespace std;
 
 #include "Player.h"
+#include "LL.h"
 
 Player::Player(int x,string y){
     point=x;
     name=y;
 }
 
-void Player::getPdata(int a){
-    cout<<"Player "<<a<< " name: ";
-    cin>>name;
-    cin.clear();
-    cin.ignore(10000,'\n');
+void Player::getPdata(int a,LL* b){
+    string inName;
+
+    do{
+        system("clear");
+        cout<<"Player "<<a<< " name: ";
+        cin>>inName;
+        cin.clear();
+        cin.ignore(10000,'\n');
+    }while(b->checkname(inName,b->head())==0);
+    name=inName;
     point =0;
 }
 

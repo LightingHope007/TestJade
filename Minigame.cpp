@@ -11,7 +11,6 @@ using namespace std;
 #include "quicktime.h"
 #include "TEXT.h"
 
-int g;
 
 miniG::miniG(int x){
     num=x;
@@ -25,6 +24,7 @@ miniG:: ~miniG(){
 void miniG::selectgame(int a){
       string ans;
       int s;
+      ran=0;
       do
      {
             cout << "Choose minigame" << a << " : "<< endl;
@@ -33,22 +33,23 @@ void miniG::selectgame(int a){
              << "3.Plant the Tree"<<endl
              << "4.Pick up the trash"<<endl
              << "5.Build a school"<<endl
-             << "6.Random" << endl;
+             << "6.Random\n" << endl
+             << "Enter the number! :";
 
         getline(std::cin, ans);
         
         s = Check_ans(ans);
         
     } while (ans == " "  || s == 1);
+    if(ans[0]=='6') ran = rand()% 5 + 1;
     num=stoi(ans);
 }
 
 int miniG::run(int x){
       srand(time(NULL));
       int p = 0; 
-      g = x;
-      if(g == 6) g = rand()% 5 + 1;
-      switch(g){
+      if(x == 6) x=ran;
+      switch(x){
             case 1:
                   mathintro();
                   p = Math_G();

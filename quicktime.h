@@ -56,7 +56,8 @@ int quicktime(){
     auto end = steady_clock::now();//end timer
     duration<double> elapsed_seconds = end - start;
     cout << "time use: " << elapsed_seconds.count() << endl;
-
+    cin.clear();
+    cin.ignore(10000,'\n');
     int time = static_cast<int>(elapsed_seconds.count());
     int score = score_quicktime(time);
 

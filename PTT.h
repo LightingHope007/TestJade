@@ -17,7 +17,7 @@ int PTT(){
     LL wordL;
     NODE* t;
     int score=0;
-    double time=30;
+    double time=90;
 
     // Read from the text file
     ifstream pool("PTT_pool.txt");

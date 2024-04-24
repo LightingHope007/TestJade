@@ -4,6 +4,9 @@ using namespace std;
 
 #include "NODE.h"
 #include "Player.h"
+#include "LL.h"
+
+class LL;
 
 NODE::NODE(){
     next=nullptr;
@@ -22,7 +25,7 @@ void NODE::insert(NODE*& x){
       next = x;
 }
 
-void NODE::getPdata(int){cout<<"blank"<<endl; return;}
+void NODE::getPdata(int,LL*){cout<<"blank"<<endl; return;}
 void NODE::show_point(){cout<<"blank"<<endl; return;}
 void NODE::addPoint(int){cout<<"blank"<<endl; return;}
 int NODE::getPoint(){cout<<"blank"<<endl; return 0;}
@@ -34,5 +37,6 @@ int NODE::show_num(){cout<<"blank"<<endl; return 0;}
 
 void NODE::Tgetdata(string){cout<<"blank"<<endl; return;}
 int NODE::Tquestion(double*){cout<<"blank"<<endl; return 0;}
+void NODE::Treetete(int*){cout<<"blank"<<endl; return;}
 
 

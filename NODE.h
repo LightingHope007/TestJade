@@ -5,12 +5,13 @@
 #include <iomanip>
 using namespace std;
 
-
+#include "LL.h"
+class LL;
 
 class NODE{
     private:
         NODE* next;
-    public:
+     public:
         NODE();
         virtual ~NODE();
         NODE* move_next();//for LL.
@@ -18,7 +19,7 @@ class NODE{
 
         //for polymorph
         //Player
-        virtual void getPdata(int);
+        virtual void getPdata(int,LL*);
         virtual void show_point();
         virtual void addPoint(int);
         virtual int getPoint();
@@ -30,6 +31,7 @@ class NODE{
         //PTT_class
         virtual void Tgetdata(string);
         virtual int Tquestion(double*);
+        virtual void Treetete(int*);
 };
 
 

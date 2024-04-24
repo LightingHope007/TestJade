@@ -29,6 +29,12 @@ int PS()
 
     while (time>0)
     {
+        cout<<endl<<"||==||==||==||==||==||==||==||"<<endl;
+        for(int i =0;i<point;i++){
+            cout<<"....v";
+            if(i%5==0&&i!=0)cout<<"...."<<endl<<endl;
+        }
+        cout<<endl<<"||==||==||==||==||==||==||==||"<<endl;
         GenQuestion(asciiChars,&ex);
         switch(ex){
             case 17: mod=1; break;
@@ -77,6 +83,8 @@ int PS()
 
         auto end = steady_clock::now();
         duration<double> elapsed_seconds = end - start;
+        system("clear");
+
         if (Check_Ans(asciiChars, answerIn , ex) == 0)
         {
             cout << "Correct" << endl;
@@ -94,7 +102,7 @@ int PS()
         {
             cout << "Too Late" << endl;
         }
-        cout << "Your Time is " << setw(3) << elapsed_seconds.count() << " seconds" << endl;
+        //cout << "Your Time is " << setw(3) << elapsed_seconds.count() << " seconds" << endl;
         cout<<"============================"<<endl;
         time-=elapsed_seconds.count();
     }

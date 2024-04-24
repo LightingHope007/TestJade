@@ -11,7 +11,9 @@
 
 using namespace std;
 using namespace chrono;
-using namespace this_thread;
+using namespace this_thread; 
+
+class Player;
 
 LL::LL(){
      hol = NULL;
@@ -32,6 +34,7 @@ LL::~LL(){
 //add node: first input is head
 void LL::add_node(NODE *&A){
      NODE* t=hol;
+     int k;
      if(hol==NULL){
           hol = A;
           size++;
@@ -67,6 +70,22 @@ NODE *LL::get_node(int index){
 
 NODE *LL::head(){
      return hol;
+}
+
+int LL::checkname(string input, NODE* x){
+     int i;
+     NODE* t=hol;
+
+      if (t == nullptr) {
+        cout << "Error: Empty list." << endl;
+        return 1;
+    }
+    for (int i = 0; i < size; i++) {
+        if (input == t->getname()) return 0;
+        if (t->move_next() == nullptr) break; // Exit loop if next node is null
+        t = t->move_next(); // Move to the next node
+    }
+     return 1;
 }
 
 //show players' score
@@ -109,7 +128,7 @@ void LL::run(NODE* x){
 void LL::SortnShow(NODE* x){
      LL newL;
      NODE *t=x,*v;
-     int i,j,prevMax=0,CurrMax=0,temp;
+     int i,j,prevMax=0,CurrMax=0;
      string CurrName;
      for(i=0;i<size;i++){
           t=x;
@@ -139,8 +158,10 @@ void LL::PTTrun(int *a, double* b){
      NODE *t;
      double sub;
      srand(time(NULL));
+      t=get_node(rand()%size);
      while((*b)>0){
           t=get_node(rand()%size);
+          t->Treetete(a);
           (*a)+=t->Tquestion(&sub);
           (*b)+=sub;
           

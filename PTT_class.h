@@ -15,6 +15,7 @@ class PTTquiz: public NODE{
     public:
         void Tgetdata(string);//setup difficulty and points
         int Tquestion(double*);//run the stage
+        void Treetete(int*);
 };
 
 

@@ -7,8 +7,9 @@
 using namespace std;
 using namespace chrono;
 
-int mod;
+int mod,ani;
 int Check_Ans(string, string);
+void art();
 
 double Decimal(double num) 
     {
@@ -34,7 +35,7 @@ double DisplayQuestion(){ //Make question
               case 4:
                    a[i] = (rand()%20)+40; mod++; break;
               case 5:
-                   a[i] = (rand()%20)+50; mod+=2; break;
+                   a[i] = (rand()%20)+50; mod++; break;
               default: break;
                    
             }
@@ -56,14 +57,12 @@ double DisplayQuestion(){ //Make question
             ans = a[0] * (int(a[1])%12+1);
             cout<<"================"<<endl;
             cout<<a[0]<<" x "<<int(a[1])%12+1<<" = ";
-            mod++;
             break;
         case 3 :
             ans = a[0] / (int(a[1])%12+1);
             ans = round(ans);
             cout<<"================"<<endl;
             cout<<ans*(int(a[1])%12+1)<<" / "<<int(a[1])%12+1<<" = ";
-            mod++;
             break;
         }
         
@@ -82,6 +81,8 @@ int Math_G() {
         //count time
         auto start = steady_clock::now();
         //add-on display 
+        art();
+        //
         cout<<"================"<<endl<<"Question "<<count<<endl;
         //
         int ans = DisplayQuestion();//show question
@@ -114,7 +115,7 @@ int Math_G() {
         cout << "Too Late" << endl;
         point--;
     } 
-    cout <<"Your time is "<<setw(3)<< elapsed_seconds.count() << endl;
+    //cout <<"Your time is "<<setw(3)<< elapsed_seconds.count() << endl;
     cout<<"================"<<endl;
     time-=elapsed_seconds.count();
     }
@@ -142,4 +143,56 @@ int Check_Ans(string correctAns, string userAns)
         }
     }
     return 0; 
+}
+
+void art(){
+    if(ani%2==0){
+        cout << R"(              ###*++++*###              
+           ##+=----------=+##           
+         #=----+*-------------##         
+      #:----*-.+=---+----------+#        
+      #*=-=#..:=*=--#+--=*------*#       
+      +#:=*       -**..=**=-*++-+#       
+      ##.+-    _        _     #*=###     
+       ##*     O        O     =   -##    
+       #==////      .    ////-*+:.:#     
+        #*+      ______     :-*+=+#       
+          #:     \____/    .=+==+#        
+           #+......::....*+==+#         
+             ##+:.....:+*===*#          
+             #+=*..#-.++==+##           
+            #+==+*:..*+==+#             
+            #+=*==*:*+==*#              
+           #+=+*==+++===+#              
+           #+=*+===.====+#              
+    ###############################     
+         #*==*#+..:=:....:=##           
+          #........#........*#          
+         #+*****************+##    )"<<endl;
+    }
+    else{
+        cout << R"(              ###*++++*###              
+           ##+=----------=+##           
+         #=----+*-------------##         
+      #:----*-.+=---+----------+#        
+      #*=-=#..:=*=--#+--=*------*#       
+      +#:=*       -**..=**=-*++-+#       
+      ##.+-    _        _     #*=##     
+       ##*     O        <     = =#*    
+       #==////      .    //// ==##     
+        #*+      ______      -*#       
+          #:     \____/    .=:#         
+           #+......::....*+=#          /|___
+             ##+:.....:+*==########:=++   __)     
+             #+=*..#-.++=+==++=+=-;:++   __/
+            #+==+*:..*+==+####+;=###++-___/        
+            #+=*==*:*+==*#              
+           #+=+*==+++===+#              
+           #+=*+===.====+#              
+    ###############################     
+         #*==*#+..:=:....:=##           
+          #........#........*#          
+         #+*****************+##       )"<<endl;
+    }
+    ani++;
 }
